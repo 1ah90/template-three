@@ -1,0 +1,1730 @@
+:root{
+    --sectionPadding-top:100px;
+    --sectionPadding-bottom:100px;
+    --mainColor:#2196f3;
+    --mainBackgroundColor:#ececec;
+    --main-transtion:0.3s;
+    --featColorOne:#009688;
+    --featColorTwo:#f44036;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+
+}
+
+html{
+    scroll-behavior: smooth;
+
+}
+
+body{
+    font-family: "Cairo", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+ul,
+li{
+    list-style: none;
+    padding: 0;
+}
+/* here is my component start */
+.container-compo {
+    text-transform: uppercase;
+    padding-top: var(--sectionPadding-top);
+    padding-bottom: var(--sectionPadding-bottom);
+    display: flex;
+    justify-content: center;
+}
+
+.container-compo h2{
+    max-width: fit-content;
+    letter-spacing: 1px;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    font-size: 30px;
+    border: 2px solid black;
+    z-index: 1;
+    transition-duration: 0.5s;
+    transition-delay: 0.4s;
+    
+}
+
+.container-compo h2:hover{
+    border: transparent 0px solid;
+    color: white;
+}
+.container-compo h2::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+    right: -25%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s linear;
+    z-index: -1;
+}
+.container-compo h2::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+    left: -25%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s linear;
+    z-index: -1;
+
+}
+
+.container-compo h2:hover:after{
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+.container-compo h2:hover::before{
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+/* here is my component end */
+
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* small screen container */
+@media (min-width:768px) {
+    .container{
+        width: 750px;
+    }
+}
+/* mediam screen container */
+@media (min-width:992px) {
+    .container{
+        width: 970px;
+    }
+}
+/* large screen container */
+@media (min-width:1200px) {
+    .container{
+        width: 1170px;
+    }
+}
+
+/* header start  */
+header{
+    position: relative;
+    box-shadow: 0 0 15px 1px  rgb(0, 0,0,0.6);
+    background-color: #ececec;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+header .logo{
+    color: var(--mainColor);
+    padding: 0px 25px;
+    font-size: 25px;
+    height: 72px;
+    text-transform: capitalize;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:767px) {
+    header .container .logo{
+        width: 100%;
+    }
+}
+header .container  .main-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-a;
+    font-size: 18px;
+
+}
+
+
+header .container .main-nav > li a{
+    color: black;
+    height: 72px;
+    padding: 0 25px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--main-transtion);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:767px) {
+    header .container  .main-nav{
+        justify-content: center;
+        margin: auto;
+    }
+    header .container .main-nav >  li  a{
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+header .container .main-nav > li a::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 0;
+    left: 0;
+    top: 0;
+    background-color: var(--mainColor);
+    transition: var(--main-transtion);
+
+}
+header .container .main-nav > li a:hover::before{
+    width: 100%;
+}
+header .container  .main-nav > li a:hover{
+    color: var(--mainColor);
+}
+/* header end  */
+
+/* dropdown start  */
+
+header .container{
+    position: relative;
+}
+.mainmenu:hover + .dropdown{
+    opacity: 1;
+    transition: var(--main-transtion);
+    top: 100%;
+}
+.dropdown{
+    position: absolute;
+    left: 0;
+    max-width: 100%;
+    top: calc(100% + 75px);
+    background-color: white;
+    border-bottom: var(--mainColor) solid 4px;
+    display: flex;
+    padding: 25px;
+    gap: 30px;
+    z-index: 1;
+    opacity: 0;
+}
+.dropdown img{
+    height: 100%;
+    margin: auto;
+}
+.dropdown ul{
+    color: var(--mainColor);
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    padding-top: 30px;
+}
+.dropdown ul li{
+    min-width: 250px;
+    height: 50px;
+    font-size: 16px;
+    text-align: left;
+    
+}
+.dropdown ul li a{
+    padding-bottom: 15px;
+    border-bottom: rgb(153, 153, 153,0.3) solid 1px;
+    color: var(--mainColor);
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    display: block;
+}
+
+.dropdown ul li i{
+    margin-right: 15px;
+}
+@media (max-width:767px) {
+    .dropdown{
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    .dropdown ul{
+        padding-top: 0;
+        margin-left: 5px;
+
+    }
+    .dropdown ul li a{
+        font-size: 20px;
+
+    }
+    .dropdown img{
+        display: none;
+    }
+}
+/* .main-nav end */
+
+/* landing start  */
+.landing {
+    position: relative;
+}
+.landing::before{
+    content: "";
+    position: absolute;
+    top: -70px;
+    height: 100%;
+    width: 100%;
+    background-color: hsl(0, 4%, 75%,0.3);
+    z-index: -1;
+    transform: skewY(-6deg);
+}
+.landing .container{
+    display: flex;
+    justify-content: space-between;
+    min-height: calc(100vh - 72px);
+    padding-top: var(--sectionPadding-top);
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.landing .text{
+    flex: 1;
+    position: relative;
+    top: 50px;
+    width: 500px;
+}
+.landing .text h1{
+    font-size: 42px;
+    margin: 0;
+}
+
+.landing .text p{
+    margin-top: 10px;
+    color: #777;
+    font-size: 28px;
+    line-height: 1.5;
+}
+.landing img{
+    width: 600px;
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    animation: mymove 5s linear infinite  ;
+}
+@keyframes mymove {
+    0% { top: 0;}
+    25% { top: -50px;}
+    50% { top :-100px;}
+    75% { top: -50;}
+    100%{ top: 0;}
+}
+@media (max-width:992px) {
+    .landing .container{
+        padding-top: 0;
+    }
+    .landing .text{
+        text-align: center;
+    }
+    .landing h1{
+        font-size: 32px;
+    }
+    .landing p{
+        font-size: 22px;
+    }
+    .landing img{
+        display: none;
+    }
+}
+.landing .fa-angles-up{
+    color: var(--mainColor);
+    font-weight: 800;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%) rotate(180deg);
+    font-size: 32px;
+    animation: myangle 1s linear infinite  ;
+    cursor: pointer;
+
+}
+/* @keyframes myangle {
+    0%, 10%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);}
+    40%, 60% {
+    transform: translateY(-15px);}
+} */
+@keyframes myangle {
+    0% { top: 0;}
+    77% { top: -5px;}
+    88% { top :-10px;}
+    99% { top: -8;}
+    100%{ top: 0;}
+}
+/* landing end  */
+
+/* here my Aritcles start  */
+/* here is my articles cards start  */
+.container .cards-articles{
+    padding-bottom: var(--sectionPadding-bottom);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.container .cards-articles .article{
+    overflow: hidden;    
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 0 5px 5px rgba(114, 114, 114, 0.1);
+    transition: var(--main-transtion);
+}
+
+@media (min-width:599px) {
+    .container .cards-articles .article{
+        flex-basis: 100%;
+    }
+}
+@media (min-width:600px){
+    .container .cards-articles .article{
+        flex-basis: 39%;
+    }
+}
+
+@media (min-width:1200px){
+    .container .cards-articles .article{
+        flex-basis: 20%;
+    }
+}
+.container .cards-articles .article:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 5px 6px rgba(114, 114, 114, 0.2);
+
+}
+
+.container .cards-articles .article img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}
+.container .cards-articles .article .text{
+    padding: 20px;
+    border-bottom: 1px rgb(128, 128, 128 ,0.3) solid;
+}
+.container .cards-articles .article .text h4{
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+.container .cards-articles .article .text p{
+    font-size: 16px;
+    color: gray;
+}
+.container .cards-articles .article span{
+    display: block;
+    color: var(--mainColor);
+    padding: 30px;
+    font-weight: 600;
+    position: relative;
+}
+.container .cards-articles .article  i{
+    position: absolute;
+    left: 80%;
+
+}
+.container .cards-articles .article:hover i{
+    animation: share-head 1s infinite;
+
+}
+@keyframes share-head {
+    0% {
+        left: 80%;
+    }
+    20%{
+        left: 81%;
+    }
+    40%{
+        left: 82%;
+    }
+    60%{
+        left: 83%;
+    }
+    80%{
+        left: 84%;
+    }
+    100% {
+        left: 85%;
+    }
+}
+
+/* here my Aritcles end  */
+
+/* here is my gallay start */
+.gallary{
+    padding-bottom: var(--sectionPadding-bottom);
+    background-color: #e8e8e8;
+}
+.gallary .container .albom{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.gallary .container .albom .photo{
+    width: 330px;
+    height: 350px;
+    overflow: hidden;
+    border: 15px white solid;
+    box-shadow: 0 0 5px 5px rgba(108, 108, 108, 0.2);
+    position: relative;
+}
+.gallary .container .albom .photo img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: var(--main-transtion);
+}
+
+.gallary .container .albom .photo:hover img{
+    transform: rotate(5deg) scale(1.1);
+}
+.gallary .container .albom .photo::before{
+    content: "";
+    width: 0px;
+    height: 0px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    transition: var(--main-transtion)  ;
+}
+.gallary .container .albom .photo:hover::before{
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* here is my gallary end */
+/* here is my Features start  */
+
+.features .container{
+    padding-top: var(--sectionPadding-bottom);
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.features .container .features-boxes{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px, 1fr));
+    
+    gap: 50px;
+}
+.features .features-boxes .feature{
+    width: 100%;
+    position: relative;
+    border: 1px solid rgb(192, 190, 190);
+}
+.features .feature img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.features .feature .image-holder{
+    position: relative;
+    overflow: hidden;
+}
+.features .time .image-holder::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 100%;
+    height: 100%;
+    background-color: hsl(174, 100%, 29%, 60%);
+}
+.features .quality .image-holder::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(244 64 54 / 60%);
+}
+.features .passion .image-holder::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(3 169 244 / 60%);
+}
+.features .feature .image-holder::before{
+    content: "";
+    z-index: 100;
+    position: absolute;
+    border-color: transparent transparent white transparent;
+    border-width: 170px 500px 170px 0;
+    border-style: solid;
+    left: 0;
+    bottom: -2px;
+    transition: var(--main-transtion);
+}
+.features .feature:hover .image-holder::before{
+    border-color: transparent transparent white transparent;
+    border-width: 170px 0 200px 500px
+}
+
+.features .feature .text{
+    padding: 20px;
+    text-align: center;
+}
+.features .feature .text h2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 35px;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+.features .passion .text h2::before{
+    background-color: #2196f3;
+}
+.features .time .text h2::before{
+    background-color:#009688;
+}
+.features .quality .text h2::before{
+    background-color: #f44036;
+}
+.features .feature .text h2::before{
+    content: '';
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 5px;
+    left: 50%;
+    bottom: -5px;
+    transform: translatex(-50%);
+    border-radius: 12px
+    
+}
+.features .feature .text span{
+    margin: auto;
+    display: block;
+    height: 10px;
+    border-radius: 10px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.features .feature .text p{
+    color: #858383;
+    font-size: 20px;
+    line-height: 2;
+    margin: 20px 0 20px 0;
+    font-size: 20px
+}
+
+.features .feature span{
+    display: block;
+    background: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 15px 25px 15px 25px;
+    width: fit-content;
+    margin: 0 auto 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: var(--main-transtion);
+    position: relative;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.features .passion span{
+    border:solid 5px #2196f3;
+    color: #2196f3;
+}
+.features .time span{
+    border:solid 5px #009688;
+    color: #009688;
+}
+.features .quality span{
+    border:solid 5px #f44036;
+    color: #f44036;
+}
+
+.features .feature span::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    transition: var(--main-transtion);
+    
+}
+.features .feature:hover span{
+    color: white;
+}
+.features .feature:hover.quality span::before{
+    background-color: #f44036;
+    width: 100%;
+    z-index: -100;
+}
+.features .feature:hover.time span::before{
+    background-color: #009688;
+    width: 100%;
+    z-index: -100;
+}
+.features .feature:hover.passion span::before{
+    background-color: #2196f3;
+    width: 100%;
+    z-index: -100;
+}
+/* here is my testimonials start  */
+.testimonials{
+    background-color:#e8e8e8;
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.testimonials .container .box-testimonials{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 20px;
+}
+.testimonials .box-testimonials .photo{
+    width: 90px;
+    border: 7px solid #e8e8e8;
+    border-radius: 50%;
+    position: absolute;
+    right: -5px;
+    bottom: 75%;
+}
+
+.testimonials .box-testimonials .testimonial{
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px 1px rgb(156, 156, 156);
+}
+.testimonial .info h2{
+    font-size: 20px;
+}
+.testimonial .info .position{
+    color: #565555;
+    margin: 10px 0 10px 0;
+}
+.testimonial .info p{
+    line-height: 1.6;
+    color:#565555;
+    margin: 10px 0 0px 0;
+
+}
+.one li i:not(:last-child),
+.two li i:not(:last-child),
+.three li i:not(:last-child){
+    color: gold;
+    font-weight: 1000;
+}
+
+.fore li i{
+    color: gold;
+    font-weight: 1000;
+}
+.five li i:nth-last-child(+n+3),
+.six li i:nth-last-child(+n+3){
+    color: gold;
+    font-weight: 1000;
+}
+
+/* here is my testimonials end  */
+
+/* here is my members :start */
+.team-members .box-members{
+    display: grid;
+    grid-template-columns:repeat( auto-fill  , minmax(300px , 1fr));
+    gap: 30px;
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.team-members .box-members .img-holder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+}
+.team-members .box-members .photo-team{
+    width: 80%;
+    border-radius: 20px;
+}
+.team-members .box-members .social-team{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: #4e4d4d;
+    cursor: pointer;
+}
+.team-members .box-members .social-team i:hover{
+    color: var(--mainColor);
+}
+.team-members .box-members .member{
+    padding: 50px 20px 20px 0;
+    position: relative;
+
+}
+
+.team-members .box-members .member::before,
+.team-members .box-members .member::after{
+    content: "";
+    height: 100%;
+    top: 0;
+    right:0;
+    position: absolute;
+    border-radius: 10px;
+    transition: var(--main-transtion);
+}
+.team-members .box-members .member::after{
+    width: 0;
+    z-index: -1;
+    background-color: #d0cece;
+}
+.team-members .box-members .member:hover::after{
+    z-index: -2;
+    width: calc(100% - 60px);
+}
+.team-members .box-members .member::before{
+    background-color: #e8e8e8;
+    width: calc(100% - 60px);
+    z-index: -2;
+
+}
+.team-members .box-members .member .info{
+    padding-left: 80px;
+}
+.team-members .box-members .member:hover .info h2{
+    color: #878686;
+}
+
+.team-members .box-members img {
+    transition: var(--main-transtion);
+}
+.team-members .box-members .member:hover img{
+    filter: grayscale(100%);
+}
+
+.team-members .box-members .member:hover .photo-team::before{
+
+    background-color: #777;
+}
+.team-members .box-members .member .info h2{
+    margin: 10px 0 10px;
+    color: var(--mainColor);
+    transform: var(--main-transtion);
+}
+/* here is my members end  */
+/* here is my services start  */
+.services{
+    background-color: #e8e8e8;
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.services .box-services{
+    display: grid;
+    counter-reset: section-counter;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 50px;
+
+}
+.services .box-services .service{
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0 10px 10px rgb(177, 176, 176 ,0.2);
+    transition: var(--main-transtion);
+    position: relative;
+    counter-increment: section-counter
+}
+
+.services .box-services .service::before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 5px;
+    background-color: var(--mainColor);
+    left: 50%;
+    top: 0%;
+    transform: translate(-50% , -50%);
+    transition: var(--main-transtion);
+}
+.services .box-services .service:hover::before{
+    width: 100%;
+
+} 
+.services .box-services .service:hover{
+    transform: translateY(-10px);
+}
+.services .box-services .service i{
+    color: rgb(128, 128, 128 ,0.6);
+    padding-top: 20px;
+    font-size: 80px
+}
+.services .box-services .service h3 {
+    font-size: 24px;
+    margin: 20px 0 20px;
+    color: var(--mainColor);
+}
+.services .box-services .service a{
+    color: var(--mainColor);
+}
+.services .box-services .service .ser-buttom{
+    padding: 15px;
+    position: relative;
+    background-color: #f9f9f9;
+    text-align: right;
+    overflow: hidden;
+}
+.services .box-services .service .ser-buttom::before{
+    content: "0" counter(section-counter);
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    background-color: var(--mainColor);
+    left: 0;
+    top: 0;
+    font-weight: 800;
+    font-size: 30px;
+}
+.services .box-services .service .ser-buttom::after{
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background-color: #c0c0b5;
+    left: 90px;
+    top: 0;
+    transform: skew(-30deg);    top: 0;
+}
+/* here is my services end  */
+/* here is my skills start  */
+.skills .container{
+    display: flex;
+    padding-bottom: var(--sectionPadding-bottom);
+}
+@media (max-width:992px) {
+    .skills .container img{
+        display: none;
+    }
+}
+.skills .container .skills-box{
+    flex: 1;
+}
+.skills .container .skill-holder{
+    padding-bottom: 20px;
+}
+.skills .container .skill-holder h2{
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+.skills .container .skill-holder .prog{
+    height: 30px;
+    position: relative;
+    background-color: rgb(128, 128, 128, 0.3);
+    z-index: -1;
+}
+.skills .container .skill-holder .prog::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -40px;
+    width: 40px;
+    height: 20px;
+    border: 2px  solid rgb(128, 128, 128 ,0.5);
+    border-radius: 8px;
+    z-index: 2;
+
+}
+
+.skills .container .skill-holder .prog::after{
+    content: attr(data-progress);
+    position: absolute;
+    top: calc(-40px + 3px);
+    right: 8px;
+    color: var(--mainColor);
+    font-weight: bold;
+    font-size: 15px;
+
+}
+.skills .container .skill-holder .prog span{
+    position: absolute;
+    background-color: var(--mainColor);
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* here is my skills end  */
+/* here is my work start  */
+.works{
+    background-color: #e8e8e8;
+
+}
+
+.works .container{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding-bottom: var(--sectionPadding-bottom);
+}
+
+.works .container .box{
+    position: relative;
+    background-color: rgb(244, 241, 241);
+    display: flex;
+    padding: 30px;
+    margin-bottom: 10px;
+    align-items: center;
+    border: snow solid 2px;
+}
+@media (max-width:992px) {
+    .works .container {
+        flex-direction: column;
+    }
+    .works .container .img-holder img{
+        max-width: 100%;
+    }
+}
+
+.works .container .box::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: rgb(232, 232, 232);
+    transition: var(--main-transtion);
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+.works .container .box:hover::before{
+    width: 100%;
+    height: 100%;
+}
+
+.works .container .box img{
+    width: 70px;
+    margin-right: 30px;
+    z-index: 2;
+}
+
+.works .container .box .text{
+    z-index: 2;
+}
+
+.works .container .box h3{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.works .container .box p{
+    font-size: 18px;
+    line-height: 2;
+    color: #878686;
+}
+/* here is my work end  */
+/* here is my event start  */
+.events{
+    position: relative;
+}
+
+.events .dots-1{
+    position: absolute;
+    top: calc(var(--sectionPadding-top) + 100px);
+    right: 0;
+}
+
+.events .dots-2{
+    position: absolute;
+    bottom: var(--sectionPadding-bottom);
+    left: 0;
+}
+
+.events .container{
+    padding-bottom: 200px;
+}
+.events .container .event{
+    display: flex;
+
+}
+.events .container .event img {
+    width: 400px;
+}
+@media (max-width:991px) {
+    .events .container .event img,
+    .dots-1,
+    .dots-2{
+        display: none;
+    }
+
+}
+.events .container .event .info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.events .container .event .info .timer{
+    display: flex; 
+    justify-content: center;
+    gap: 10px;
+}
+.events .container .event .info .timer div{
+    border: 1px #e0dbdb solid;
+    border-radius: 12px;
+    width: 80px ;
+    text-align: center;
+    transition: var(--main-transtion);
+}
+.events .container .event .info .timer div:hover{
+    border-color: var(--mainColor);
+}
+.events .container .event .info .timer div span{
+    margin: 5px 0 5px 0;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--mainColor);
+    text-align: center;
+    display: block;
+}
+.events .container .event .info .timer div p{
+    padding: 10px;
+    font-size: 16px;
+    border-top: solid #e0dbdb 1px;
+    transition: var(--main-transtion);
+}
+.events .container .event .info .timer div:hover p{
+    border-color: var(--mainColor);
+}
+.events .container .event .info .text{
+    text-align: center;
+}
+.events .container .event .info .text h2{
+    font-size: 32px;
+}
+.events .container .event .info .text p{
+    color: #777;
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+.events .container .input-box{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(241, 241, 241);
+    border: 40px solid  rgb(241, 241, 241);
+    border-radius:100px ;
+    margin-top: 20px;
+    display: flex;
+}
+
+.events .container .input-box input{
+    position: relative;
+    border-style: none;
+    padding: 20px;
+    border-radius: 30px;    
+}
+
+.events .container .input-box input:first-child{
+    width: 400px;
+    margin-right: 20px;
+    outline: none;
+    
+}
+@media (max-width:779px){
+    .events .container .input-box{
+        flex-direction: column;
+        background-color: transparent;
+        border:0 solid transparent;
+    }
+    .events .container .input-box input:last-child{
+        width: 200px;
+        margin: auto;
+    }
+    .events .container .input-box input:first-child{
+        margin-right: 0px;
+        margin-bottom: 20px;
+        background-color: #e9dede;
+    }
+}
+.events .container .input-box input:last-child{
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.events .container .input-box input:last-child:hover{
+    background-color: #2186da;
+}
+/* here is my event end  */
+/* here is my plans start  */
+.pricing{
+    background-color: #e8e8e8;
+    position: relative;
+}
+.pricing .image:first-of-type{
+    position: absolute;
+    right: 0;
+    top: 200px;
+    z-index: 1;
+}
+.pricing .image:last-of-type{
+    position: absolute;
+    left: 0;
+    bottom: 200px;
+}
+.pricing .container{
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.pricing .container .plans{
+    display: grid;
+    grid-template-columns:repeat( auto-fill , minmax(300px , 1fr));
+    gap: 30px;
+    
+}
+.plans .plan{
+    z-index: 2;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0px 17px 20px 12px #8080807a;
+    border-radius: 20px;
+    transition: var(--main-transtion);
+}
+.plans .plan:hover{
+    border: 5px solid #2186da;
+}
+.plans .plan:nth-child(2){
+    transform: translateY(-40px);
+    position: relative;
+}
+@media (max-width:992px) {
+    .plans .plan:nth-child(2){
+        transform: translateY(0);
+    }
+    
+}
+.plans .plan:nth-child(2)::before{
+    content: "Most Popular";
+    position: absolute;
+    transform: rotate(90deg);
+    color: #f9f9f9;
+    top: 60px;
+    right: -20px;
+    font-weight: 800;
+    font-size: 20px;
+    width: fit-content ;
+    padding: 15px 50px 15px 10px;
+    background-color: var(--mainColor);
+}
+.plans .plan:nth-child(2)::after{
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 120px;
+    border-width: 28px;
+    border-style: solid;
+    border-color: transparent transparent #f9f9f9 transparent;
+}
+.plans .plan .title{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.plans .plan i{
+    font-size: 50px;
+    color: var(--mainColor);
+    padding-bottom: 30px
+}
+.plans .plan p{
+    position: relative;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--mainColor);
+    padding-bottom: 30px;
+}
+.plans .plan p::before{
+    content: "Per Monthe";
+    color: #777;
+    font-weight: 200;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    position: absolute;
+}
+.plans .plan .featurs{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+}
+.plans .plan .featurs span{
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid rgb(128, 128, 128,0.3)
+}
+.plans .plan .featurs span::before{
+    content: "✅";
+    color: var(--mainColor);
+    margin-right: 5px;
+}
+.plans .plan a{
+    position: relative;
+    font-weight: 800;
+    display: block;
+    width: 130px;
+    margin: 20px auto 20px ;
+    text-align: center;
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+    border-radius: 10px;
+    padding: 20px;
+    transition: var(--main-transtion);
+}
+.plans .plan a:hover{
+    background-color: var(--mainColor);
+    color: #f9f9f9;
+}
+/* here is my plans ends  */
+/* here is my top-videos start  */
+
+.top-videos{
+    padding-bottom: var(--sectionPadding-bottom);
+}
+.top-videos .container{
+    background-color: #e8e8e8;
+    padding-left: 1px;
+}
+.top-videos .container .videos{
+    gap: 10px;
+    display: flex;
+}
+@media (max-width:992px) {
+    .top-videos .container .videos{
+        flex-direction: column;
+    }
+    
+}
+.top-videos .container .videos .screen{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+.top-videos .container .videos img{
+    max-width: 100%;
+}
+.top-videos .container .videos p{
+    max-width: 100%;
+    background-color: white;
+    padding: 20px;
+}
+.top-videos .container .videos ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1px;
+    min-width: 300px;
+    max-width: 100%;
+
+}
+.top-videos .container .videos ul .name,
+.top-videos .container .videos ul li{
+    padding: 20px;
+    background: white;
+} 
+.top-videos .container .videos ul .name{
+    display: flex;
+    justify-content: space-between;
+
+}
+.top-videos .container .videos ul li{
+    cursor: pointer;
+    transition: var(--main-transtion);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.top-videos .container .videos ul li:hover{
+    color: var(--mainColor);
+}
+
+.top-videos .container .videos ul li span{
+    display: block;
+    color: gray;
+    padding-top: 5px;
+}
+/* here is my top-videos end */
+/* here is my goals start  */
+.goals{
+    padding-bottom: var(--sectionPadding-bottom);
+    padding-top: var(--sectionPadding-top);
+    text-align: center;
+    background-color: #e0dbdb55;
+}
+.goals h1{
+    font-size: 45px;
+}
+@media (max-width:792px) {
+    .goals h1{
+        font-size: 32px;
+    }
+}
+.goals .holder{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    padding-top: 50px;
+    gap: 20px;
+}
+.goals .holder .box{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding: 25px 0px 25px;
+}
+.goals .holder .box::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 0;
+    background-color: var(--mainColor);
+    transition: 1s;
+}
+.goals .holder .box:hover::before{
+    height: 100%;
+}
+
+.goals .holder .box::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background-color: var(--mainColor);
+    transition: 1s;
+}
+.goals .holder .box:hover::after{
+    height: 100%;
+}
+
+.goals .holder .box i{
+    font-size: 35px;
+    opacity: 0.8;
+    transition: var(--main-transtion);
+}
+.goals .holder .box:hover i{
+    opacity: 1;
+}
+.goals .holder .box span{
+    font-size: 40px;
+    font-weight: bold;
+    opacity: 0.8;
+    transition: var(--main-transtion);
+} 
+.goals .holder .box:hover span{
+    opacity: 1;
+} 
+
+.goals .holder .box p{
+    color: var(--mainColor);
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    opacity: 0.8;
+    transition: var(--main-transtion);
+}
+.goals .holder .box:hover p{
+    opacity: 1;
+}
+/* here is my goals end */
+/* here is my discount section start  */
+.discount{
+    display: flex;
+    flex-direction: row-reverse;
+}
+@media (max-width:792px) {
+    .discount {
+        flex-direction: column;
+    }
+    
+}
+.discount .box-1 form,
+.discount .box-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.discount .box-1 ,
+.discount .box-2{
+    flex-basis: 50%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.discount .box-1{
+    background-color: white;
+}
+.discount .box-1 h2{
+    font-size: 35px;
+}
+.discount .box-1 form{
+    margin-top: 20px;
+}
+.discount .box-1 form input,
+.discount .box-1 form textarea{
+    padding: 20px;
+    margin-bottom: 25px;
+    border: none;
+    outline: none;
+    border-bottom: solid darkgray 1px;
+    background-color: #e0dbdb2d;
+    max-width: 100%;
+    width: 300px;
+    resize: none;
+}
+.discount .box-1 form textarea{
+    cursor:text;
+    padding-bottom: 150px;
+}
+.discount .box-1 form input:last-of-type{
+    background-color: var(--mainColor);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.discount .box-2{
+    background-color: var(--mainColor);
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.discount .box-2 h2{
+    font-size: 35px;
+    font-weight: bold;
+}
+.discount .box-2 p{
+    padding: 30px 100px 30px;
+    font-size: 22px;
+}
+@media (max-width:792px) {
+    .discount .box-2 p {
+        padding: 30px 20px 30px;
+        font-size: 18px;
+    }
+    
+}
+.discount .box-2 img{
+    max-width: 100%;
+    width: 250px;
+    z-index: 3;
+}
+.discount .box-2::before{
+    content: "";
+    position: absolute;
+    background: #2186da url(./img/discount-background1.jpg);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    filter: brightness(200%);
+    opacity: 0;
+    animation: photo 10s infinite;
+
+}
+@keyframes photo{
+    20% {opacity: 0.02;}
+    40% {opacity: 0.03;}
+    60% {opacity: 0.02;}
+    80% {opacity: 0.01;}
+    100% {opacity: 0;}
+}
+.discount .box-2::after{
+    content: "";
+    content: "";
+    position: absolute;
+    background: #2186da url(./img/discount-background2.jpg);
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    filter: brightness(200%);
+    opacity: 0.03;
+    animation: photo2 10s infinite;
+}
+@keyframes photo2{
+    20% {opacity: 0.02;}
+    40% {opacity: 0.01;}
+    60% {opacity: 0;}
+    80% {opacity: 0.02;}
+    100% {opacity: 0.03;}
+}
+/* here is my discount section ends  */
+/* here is my footer start  */
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #202020;
+}
+footer .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    color: white;
+    gap: 10px;
+}
+footer .social h1{
+    font-size: 40px;
+    margin: 0;
+}
+footer .social i{
+    color: gray;
+    background-color: rgb(60, 59, 59);
+    font-size: 26px;
+    padding: 12px;
+    margin: 30px 10px 20px 0;
+    transition: var(--main-transtion);
+}
+footer .social  a:nth-child(1):hover i{
+    color: white;
+    background-color: red;
+}
+footer .social a:nth-child(2):hover i{
+    color: white;
+    background-color: black;
+}
+footer .social a:nth-child(3):hover i{
+    color: white;
+    background-color: rgb(109, 23, 76);
+}
+footer .social p{
+    padding: 10px 40px 0 0;
+    line-height: 2;
+    color: #777;
+}
+footer .links li:first-child{
+    padding: 0px 0px 20px;
+}
+footer .links li{
+    width: 250px;
+    padding: 20px 0 20px ;
+    border-bottom: solid #777 1px;
+    transition: var(--main-transtion);
+}
+footer .links li a{
+    transition: var(--main-transtion);
+    color: #777;
+    padding-left: 10px;
+}
+footer .links li i{
+    transition: var(--main-transtion);
+    color: var(--mainColor);
+}
+footer .links li:hover a{
+    color: white;
+}
+footer .links li:hover i{
+    margin-left: 20px;
+    
+}
+footer .contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+footer .contact div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom:50px ;
+
+}
+footer .contact i{
+    color: var(--mainColor);
+    font-size: 24px;
+
+}
+footer .contact p{
+    display: block;
+    color: #777;
+    line-height: 2;
+    padding-left: 30px;
+    flex: 1;
+}
+
+footer .albom{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+footer .albom  img{
+    width: 83px;
+    border: 3px solid white;
+}
+
+
+
+.end{
+    display: block;
+    text-align: center;
+    background-color: #202020;
+    padding: 25px;
+    border-top: 1px solid gray;
+    color: white;
+}
+/* here is  my footer ends  */
+/* here is my Features end  */
