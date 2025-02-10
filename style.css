@@ -37,6 +37,19 @@ li{
     padding: 0;
 }
 /* here is my component start */
+.sep{
+    position: relative;
+    z-index: 10;
+}
+.sep::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-image: linear-gradient(135deg, white 25%, transparent 25%) , linear-gradient(225deg , white 25% , transparent 25%);
+    background-size:  30px 30px;
+}
 .container-compo {
     text-transform: uppercase;
     padding-top: var(--sectionPadding-top);
@@ -1178,6 +1191,14 @@ header .container{
     outline: none;
     
 }
+/* this for change email placeholder opacity when focus */
+.events .container .input-box input:first-child::placeholder{
+    transition: opacity var(--main-transtion);
+}
+.events .container .input-box input:first-child:focus::placeholder{
+    opacity: 0;
+}
+/* end focus */
 @media (max-width:779px){
     .events .container .input-box{
         flex-direction: column;
@@ -1344,7 +1365,7 @@ header .container{
 .top-videos{
     padding-bottom: var(--sectionPadding-bottom);
 }
-.top-videos .container{
+.top-videos .container .holder{
     background-color: #e8e8e8;
     padding-left: 1px;
 }
@@ -1359,11 +1380,10 @@ header .container{
     
 }
 .top-videos .container .videos .screen{
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    gap: 10px;
 }
 .top-videos .container .videos img{
     max-width: 100%;
@@ -1377,7 +1397,6 @@ header .container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 1px;
     min-width: 300px;
     max-width: 100%;
 
@@ -1397,7 +1416,7 @@ header .container{
     transition: var(--main-transtion);
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    border-top: solid 1px #cccbcb;
 }
 .top-videos .container .videos ul li:hover{
     color: var(--mainColor);
@@ -1414,10 +1433,26 @@ header .container{
     padding-bottom: var(--sectionPadding-bottom);
     padding-top: var(--sectionPadding-top);
     text-align: center;
-    background-color: #e0dbdb55;
+    position: relative;
+    background-image: url(./img/stats.jpg);
+    z-index: 2;
+}
+.goals::before{
+    content: '';
+    background-color: #f3f2f2;
+    opacity: 0.97;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    
 }
 .goals h1{
     font-size: 45px;
+    margin-top: 0;
+    z-index: 1;
 }
 @media (max-width:792px) {
     .goals h1{
@@ -1503,7 +1538,7 @@ header .container{
 }
 @media (max-width:792px) {
     .discount {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     
 }
@@ -1530,9 +1565,18 @@ header .container{
 }
 .discount .box-1 form{
     margin-top: 20px;
+    position: relative;
+}
+.discount .box-1 form input:focus{
+    box-shadow: inset 0px -80px 0px #2187da6f;
+}
+.discount .box-1 form textarea:focus{
+    box-shadow: inset 0px -200px 0px #2187da6f;
+
 }
 .discount .box-1 form input,
 .discount .box-1 form textarea{
+    position: relative;
     padding: 20px;
     margin-bottom: 25px;
     border: none;
@@ -1542,6 +1586,8 @@ header .container{
     max-width: 100%;
     width: 300px;
     resize: none;
+    caret-color: var(--mainColor);
+    transition: 0.5s;
 }
 .discount .box-1 form textarea{
     cursor:text;
@@ -1552,6 +1598,7 @@ header .container{
     color: white;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 }
 .discount .box-2{
     background-color: var(--mainColor);
@@ -1736,6 +1783,21 @@ footer .albom  img{
     padding: 25px;
     border-top: 1px solid gray;
     color: white;
+}
+@media (max-width:1200px) {
+    footer .container .links {
+        margin: auto;
+    }
+    footer .container p {
+        padding: 0;
+    }
+    footer .container{
+        text-align: center;
+    }
+    footer .container .contact div{
+        flex-direction: column;
+        text-align: center;
+    } 
 }
 /* here is  my footer ends  */
 /* here is my Features end  */
